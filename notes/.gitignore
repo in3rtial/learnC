@@ -1,0 +1,4 @@
+# pandoc stuff
+*.pdf
+*.log
+*.aux
