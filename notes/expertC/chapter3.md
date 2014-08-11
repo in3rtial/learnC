@@ -48,8 +48,60 @@
       short pid_id;
       struct pid_tag *link;
     };
-    
-    
 ~~~
 
-p.66
+
+### Unions
+
+~~~C
+    /* - pretty rarely used
+       - C says go fish, and relies on the programmer to remember what was put there */
+    union optional_tag {
+      type_1 identifier_1;
+      type_2 identifier_2;
+      ...
+      type_N identifier_N;
+      } optional_variable_definitions;
+~~~
+
+
+### enums
+
+~~~C
+    /* declaration format */
+    enum optional_tag {stuff... } optional_variable_definitions;
+
+    /* example */
+    enum sizes { small=7, medium, large=10, humungous };
+~~~
+
+
+### Declaration parsing
+- declarations are read boustrophedonically (alternating -> and <-)
+
+~~~C
+    void (*signal(int sig, void (*func)(int)) ) (int);
+    void (*signal(                          ) ) (int);
+~~~
+
+### Typedef
+- new name for a type
+- can omit struct keyword
+- don't bother with typedefs for structs (should be explicit about it anyways)
+
+
+### Further readings
+- check out Data Structures with Abstract Data Types
+
+
+
+
+
+
+
+
+
+
+
+
+
