@@ -108,7 +108,7 @@
 - useful for debugging or performance
 - easy to fuck up (nasty, hard to find bugs, but it is supposed to work this way)
 - all calls from *system routines* now call your function
-- **index** and **mktemp** cause bugs often0
+- **index** and **mktemp** cause bugs often
 - don't make any symbols in your program global, unless you want to use them for interface
 - **check the reserved words for the C implementation**
 
