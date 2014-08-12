@@ -33,6 +33,7 @@ malloc(strlen(str)) instead of malloc(strlen(str)+1)
 ## Sins of commission
 
 ### Switches let you down with fall through
+
 ~~~C
     switch (expression) {
       case constant-expression: zero-or-more-statements

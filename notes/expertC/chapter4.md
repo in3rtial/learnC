@@ -4,6 +4,7 @@
 
 
 ### Problematic case
+
 ~~~C
     /* different declarations */
     extern int *x; /* a pointer to int */
@@ -19,12 +20,14 @@
 
 
 ### Declaration and definition
+
 - arrays and pointers are equivalent under certain circumstances
 - definition: unique, specifies the type of an object and its storage
 - declaration: can happen multiple times, describes the type of the object, compiler information (e.g. prototypes)
 
 
 ### How arrays and pointers are accessed
+
 - difference between an address (l-value) and its content (r-value)
 
 ~~~C
@@ -86,7 +89,26 @@ and that is enough to fuck up
 
 
 ### Other differences between arrays and pointers
-p.92
+
+| pointer           |   array               |
+| ----------------- |:---------------------:|
+| holds the address of data | holds data |
+| 2 steps to access data | data is accessed directly |
+| used for dynamic data structures | holds fixed number of elements |
+| used with malloc and free | implicitely allocated and deallocated |
+| normally points to anonymous data | is a name variable in its own right |
 
 
+### Automatic behavior
 
+~~~C
+	/* normally, pointer definition don't allow allocation, except for char* */
+	char *p = "breadfruit"; /* works, different from next */
+	char p[] = "breadfruit";
+	float *pi = 3.141; /* doesn't */
+~~~
+
+## Summary
+
+- when in the same file, the compiler can play behind your back and makes a pointer and an array perform the same
+- when using external data, the data better be the specified type
