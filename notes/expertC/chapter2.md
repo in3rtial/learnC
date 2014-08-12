@@ -3,10 +3,17 @@
 ## language features, the fortran bug (NASA)
 
 - on an orbital trajectories calculator
-- DO 10 I=1.10 instead of DO 10 I=1,10 (. instead of ,)
-- blank characers are not significant and can occur in the middle of an identifier
-- DO10I = 1.10 instead of DO 10 I = 1, 10
-- was corrected in time and never caused a Mercury space flight to fail
+
+~~~fortran
+    !blank characers are not significant and can occur in the middle of an identifier
+    !this declares DO10I = 1.10
+    DO 10 I=1.10
+
+    !instead of a looping construct (. instead of ,)
+    DO 10 I=1,10
+
+    !was corrected in time and never caused a Mercury space flight to fail
+~~~
 
 in C, a common example is to forget the null character in malloc declaration e.g.
 malloc(strlen(str)) instead of malloc(strlen(str)+1)
@@ -72,40 +79,31 @@ malloc(strlen(str)) instead of malloc(strlen(str)+1)
 
 ### Symbol overloading
 
-+-------------+--------------------------------------------------------+
+
 | symbol      |   meaning                                              |
-+=============+========================================================+
-| static      | - inside function = retains its value between calls    |
-|             | - function = visible only in this file                 |
-+-------------+--------------------------------------------------------+
-| extern      | - function = global scope (default)                    |
-|             | - variable = defined elsewhere                         |
-+-------------+--------------------------------------------------------+
-| void        | - type = no value returned                             |
-|             | - pointer = generic pointer                            |
-|             | - parameter = takes no parameter                       |
-+-------------+--------------------------------------------------------+
-| \*          | - number = multiplication                              |
-|             | - pointer = indirection                                |
-|             | - declaration = pointer                                |
-+-------------+--------------------------------------------------------+
-| &           | - bitwise AND                                          |
-|             | - address-of operator                                  |
-+-------------+--------------------------------------------------------+
-| = and ==    | - assignment operator                                  |
-|             | - comparison operator                                  |
-+-------------+--------------------------------------------------------+
-| <= and <<=  | - less-than-or-equal                                   |
-|             | - compound shift-left assignment operator              |
-+-------------+--------------------------------------------------------+
-| < and <     | - less-than operator                                   |
-|             | - left delimiter in include directive                  |
-+-------------+--------------------------------------------------------+
-| ()          | - parameters                                           |
-|             | - function call                                        |
-|             | - precedence cast                                      |
-|             | - macro declaration and usage                          |
-+-------------+--------------------------------------------------------+
+| ----------- |:------------------------------------------------------:|
+| static      |   inside function = retains its value between calls    |
+|             |   function = visible only in this file                 |
+| extern      |   function = global scope (default)                    |
+|             |   variable = defined elsewhere                         |
+| void        |   type = no value returned                             |
+|             |   pointer = generic pointer                            |
+|             |   parameter = takes no parameter                       |
+| \*          |   number = multiplication                              |
+|             |   pointer = indirection                                |
+|             |   declaration = pointer                                |
+| &           |   bitwise AND                                          |
+|             |   address-of operator                                  |
+| = and ==    |   assignment operator                                  |
+|             |   comparison operator                                  |
+| <= and <<=  |   less-than-or-equal                                   |
+|             |   compound shift-left assignment operator              |
+| < and <     |   less-than operator                                   |
+|             |   left delimiter in include directive                  |
+| ()          |   parameters                                           |
+|             |   function call                                        |
+|             |   precedence cast                                      |
+|             |   macro declaration and usage                          |
 
 
 ### Operator precedence

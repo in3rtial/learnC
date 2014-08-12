@@ -18,15 +18,30 @@
 
 ### Function return types
 
-- function can't return a function: no foo()()
-- function can't return an array: no foo() []
-- array can't hold a function: no foo[]()
+~~~C
+    /* NOT ALLOWED */
+    /* function can't return a function */
+    foo()()
 
-- function returning a pointer to a function is allowed: int (* fun ())()
-- function returning a pointer to an aray is allowed: int (* foo())[]
-- array holding pointers to functions is allowed: int (*foo[])()
-- array can hold other arrays: int foo[][]
+    /* function can't return an array */
+    foo() []
 
+    /* array can't hold a function */
+    foo[]()
+
+    /* ALLOWED */
+    /* function returning a pointer to a function is allowed */
+    int (* fun ())()
+
+    /* function returning a pointer to an aray is allowed */
+    int (* foo())[]
+
+    /* array holding pointers to functions is allowed */
+    int (*foo[])()
+
+    /* array can hold other arrays */
+    int foo[][]
+~~~
 
 ### Structs
 
