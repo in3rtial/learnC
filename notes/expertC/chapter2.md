@@ -120,6 +120,31 @@ malloc(strlen(str)) instead of malloc(strlen(str)+1)
 - mostly unspecified (&& and || are specified left to right)
     - allows compiler writers some leeway
     - order of evaluation of function argument isn't even left to right!!!
+    
+~~~C
+    #include <stdio.h>
+
+    int main()
+    {
+       int a[] = {1, 2, 3};
+       int * pa; 
+
+       pa = &a[0];
+       printf("a[0] = %d\ta[1] = %d\ta[2] = %d\n",*(pa), *(pa++),*(++pa));
+       /* Result: a[0] = 3  a[1] = 2    a[2] = 2 */
+
+       pa = &a[0];
+       printf("a[0] = %d\ta[1] = %d\ta[2] = %d\n",*(pa++),*(pa),*(++pa));
+       /* Result: a[0] = 2  a[1] = 2     a[2] = 2 */
+
+       pa = &a[0];
+       printf("a[0] = %d\ta[1] = %d\ta[2] = %d\n",*(pa++),*(++pa), *(pa));
+       /* a[0] = 2  a[1] = 2 a[2] = 1 */
+
+      /* BE VERY CAREFUL ! */
+    }
+
+~~~
 
 
 ### gets() bug and the internet worm
