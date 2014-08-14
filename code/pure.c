@@ -1,5 +1,7 @@
-/* just messing around to see if there is any improvements on by signaling a function
-   as being pure */
+/* just messing around to see if there is any improvements by signaling a function
+   as being pure to gcc
+   https://gcc.gnu.org/onlinedocs/gcc/Function-Attributes.html
+*/
 
 int square (int) __attribute__ ((pure));
 
