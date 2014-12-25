@@ -24,3 +24,5 @@
 
 # python marshalled
 *.pyc
+
+.idea
