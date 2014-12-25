@@ -25,4 +25,9 @@
 # python marshalled
 *.pyc
 
+# fabricate
+*.d
+
+
+# pycharm
 .idea

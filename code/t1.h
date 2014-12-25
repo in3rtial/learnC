@@ -5,6 +5,6 @@
 #define T1 "t1.h"
 
 //double square (double);
-extern double square(int);
+double square(int);
 
 #endif
